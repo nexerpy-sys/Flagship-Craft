@@ -15,5 +15,5 @@ Separate **how the UI works** (state, data flow, accessibility, performance) fro
 ## 2. Core Standards
 
 - **Explicit State Machines**: Model `idle | loading | success | error | empty` explicitly—never derive loading/error from ambiguous booleans.
-- **Accessibility Architecture**: Load `references/state-and-a11y.md` for keyboard, focus management, ARIA, and semantic HTML rules.
+- **Accessibility Architecture**: Load `references/a11y-architecture.md` for keyboard, focus management, ARIA, and semantic HTML rules.
 - **Performance Budgets**: Avoid unnecessary re-renders, layout thrashing, and unvirtualized large lists.

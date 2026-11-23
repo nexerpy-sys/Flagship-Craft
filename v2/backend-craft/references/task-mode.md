@@ -1,5 +1,8 @@
 # Task Mode Adapter (Backend Craft)
 
-- Probe available runtimes (`python3`, `node`, `sqlite3`, etc.) in the offline sandbox first.
-- Build the thinnest end-to-end slice and run a real test against it before adding breadth.
-- Provoke at least one failure mode from the frame (bad input, duplicate request, missing record) and observe the real error response.
+In **Gemini Task Mode**, you have an **offline Linux sandbox** (zero internet, zero `pip`/`npm`/`apt` installs) to build, test, and scan backend code deterministically.
+
+## Execution Rules
+1. **Probe Runtimes First**: Check pre-installed binaries (`python3 --version`, `node --version`, `sqlite3 --version`) before writing code.
+2. **Thin-Slice + Failure Provocation**: Build one vertical slice and run real tests that provoke at least one failure mode (bad input, concurrent double-submit, missing record).
+3. **Mandatory Security Scan**: Run `python3 scripts/security_scan.py <target_dir_or_file>` in the sandbox and resolve any `[HARDCODED_SECRET]`, `[UNSAFE_SHELL]`, `[SQL_INTERPOLATION]`, or `[EVAL_EXEC]` findings before reporting done.
